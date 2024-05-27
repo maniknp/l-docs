@@ -36,3 +36,24 @@
 
 ```bash
 ps axuw | grep dockerd | grep  -v grep | awk '{print $2}' | xargs kill -9
+```
+
+## Example of `nginx` a process
+
+1. **List All Nginx Processes:**
+   ```sh
+   ps aux | grep nginx
+   ```
+2. **Detailed View:**
+   - Use `ps` with options to get a more detailed view:
+     ```sh
+     ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | grep nginx
+     ```
+
+**Example:**
+```
+  PID  PPID COMMAND                  %MEM %CPU
+ 1234     1 nginx: worker process     0.1  0.0
+ 1235     1 nginx: worker process     0.1  0.0
+```
+
